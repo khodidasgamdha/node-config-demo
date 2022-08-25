@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-require("./services/setupEnvVariables");
+const { questions } =  require("./services/setupEnvVariables");
 
 const app = express();
 
@@ -10,4 +10,8 @@ app.get("/", (req, res) => {
     res.status(200).send("Apis are working");
 });
 
-app.listen(PORT);
+if(!questions.length) {
+    app.listen(PORT, () => {
+        console.log(`Server running on PORT ${PORT}`);
+    });
+}

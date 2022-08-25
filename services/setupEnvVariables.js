@@ -267,3 +267,7 @@ const setupConfig = () => {
 if (questions.length) {
     setupConfig();
 }
+
+module.exports = {
+    questions
+}
